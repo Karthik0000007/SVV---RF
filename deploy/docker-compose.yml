@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: ../backend
+    container_name: iris_api
+    environment:
+      - MODEL_PATH=${MODEL_PATH}
+    volumes:
+      - model_artifacts:/models
+    ports:
+      - "8000:8000"  # direct access if needed
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  web:
+    build:
+      context: ../frontend
+    container_name: iris_web
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "80:80"    # visit http://localhost
+    # No volumes needed in prod; static files are baked into the image
+
+volumes:
+  model_artifacts:
