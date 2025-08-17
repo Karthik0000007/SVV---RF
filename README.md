@@ -271,10 +271,6 @@ docker-compose down -v
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - **Scikit-learn** for machine learning capabilities
@@ -282,15 +278,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **React** for the frontend framework
 - **Tailwind CSS** for styling
 - **Docker** for containerization
-
-## 📞 Support
-
-If you encounter any issues:
-
-1. Check the troubleshooting section above
-2. Review the Docker logs: `docker-compose logs`
-3. Ensure all prerequisites are met
-4. Create an issue in the repository
 
 ---
 
